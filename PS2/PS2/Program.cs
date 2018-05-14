@@ -15,6 +15,7 @@ namespace PS2
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();
+            //CEVA CE MERGE
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
