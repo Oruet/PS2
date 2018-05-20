@@ -35,8 +35,7 @@
 }
 
 /***************************************/
-.buton-stare 
-{
+.buton-stare {
     width: 60px;
     height: 60px;
     border: 1px solid black;
@@ -44,32 +43,44 @@
     display: inline-block;
 }
 
-.siloz 
-{
+.siloz {
     border: 1px solid black;
     width: 200px;
     height: 400px;
     display: inline-block;
     margin-left: 80px;
+    background-size: 200% 200%;
+    background-image: linear-gradient(to top, #ff7070 50%, transparent 50%);
+    -webkit-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -moz-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -ms-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -o-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
 }
 
-.umplere 
-{
-    background-color: #ff7070;
+.umplere {
+    background-image: linear-gradient(to top, #ff7070 51%, transparent 50%);
+    background-position: 0 100%;
+    -webkit-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -moz-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -ms-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -o-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
 }
-.container-stanga 
-{
+
+.container-stanga {
     float: left;
 }
+
 .container-dreapta {
     float: left;
     padding-left: 60px;
 }
 
-#buton-golire{
-    margin-top:20px;
+#buton-golire {
+    margin-top: 20px;
 }
 
-.pornire{
-    background-color:lightgreen;
+.pornire {
+    background-color: lightgreen;
 }

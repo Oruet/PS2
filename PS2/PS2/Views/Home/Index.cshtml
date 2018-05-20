@@ -6,16 +6,16 @@
     <div class="buton-stare">
     </div>
 
-    <div class="siloz">
+    <div class="siloz @( ((bool) ViewData["Umplut"]) ? "umplere" : "" )" >
     </div>
 </div>
 
 <div class="container-dreapta">
     <div>
-        <button>Umplere</button>
+        <button onclick="location.href='@( Url.Action("Umplere", "Home") )'">Umplere</button>
     </div>
    <div id="buton-golire">
-       <button>Golire</button>
+       <button onclick="location.href='@( Url.Action("Golire", "Home") )'">Golire</button>
    </div>
     
 </div>
