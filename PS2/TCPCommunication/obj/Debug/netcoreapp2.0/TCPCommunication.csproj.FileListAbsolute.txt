@@ -1,0 +1,9 @@
+C:\Users\Delia\Source\Repos\Oruet\PS2\TCPCommunication\bin\Debug\netcoreapp2.0\TCPCommunication.deps.json
+C:\Users\Delia\Source\Repos\Oruet\PS2\TCPCommunication\bin\Debug\netcoreapp2.0\TCPCommunication.dll
+C:\Users\Delia\Source\Repos\Oruet\PS2\TCPCommunication\bin\Debug\netcoreapp2.0\TCPCommunication.pdb
+C:\Users\Delia\Source\Repos\Oruet\PS2\TCPCommunication\obj\Debug\netcoreapp2.0\TCPCommunication.csprojResolveAssemblyReference.cache
+C:\Users\Delia\Source\Repos\Oruet\PS2\TCPCommunication\obj\Debug\netcoreapp2.0\TCPCommunication.csproj.CoreCompileInputs.cache
+C:\Users\Delia\Source\Repos\Oruet\PS2\TCPCommunication\obj\Debug\netcoreapp2.0\TCPCommunication.AssemblyInfoInputs.cache
+C:\Users\Delia\Source\Repos\Oruet\PS2\TCPCommunication\obj\Debug\netcoreapp2.0\TCPCommunication.AssemblyInfo.cs
+C:\Users\Delia\Source\Repos\Oruet\PS2\TCPCommunication\obj\Debug\netcoreapp2.0\TCPCommunication.dll
+C:\Users\Delia\Source\Repos\Oruet\PS2\TCPCommunication\obj\Debug\netcoreapp2.0\TCPCommunication.pdb

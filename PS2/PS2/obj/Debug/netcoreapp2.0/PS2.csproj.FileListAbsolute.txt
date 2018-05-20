@@ -9,3 +9,17 @@ C:\Users\Sebii\Source\Repos\PS2\PS2\PS2\obj\Debug\netcoreapp2.0\PS2.AssemblyInfo
 C:\Users\Sebii\Source\Repos\PS2\PS2\PS2\obj\Debug\netcoreapp2.0\PS2.AssemblyInfo.cs
 C:\Users\Sebii\Source\Repos\PS2\PS2\PS2\obj\Debug\netcoreapp2.0\PS2.dll
 C:\Users\Sebii\Source\Repos\PS2\PS2\PS2\obj\Debug\netcoreapp2.0\PS2.pdb
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\bin\Debug\netcoreapp2.0\PS2.deps.json
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\bin\Debug\netcoreapp2.0\PS2.runtimeconfig.json
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\bin\Debug\netcoreapp2.0\PS2.runtimeconfig.dev.json
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\bin\Debug\netcoreapp2.0\PS2.dll
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\bin\Debug\netcoreapp2.0\PS2.pdb
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\bin\Debug\netcoreapp2.0\TCPCommunication.dll
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\bin\Debug\netcoreapp2.0\TCPCommunication.pdb
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\obj\Debug\netcoreapp2.0\PS2.csprojResolveAssemblyReference.cache
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\obj\Debug\netcoreapp2.0\PS2.csproj.CoreCompileInputs.cache
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\obj\Debug\netcoreapp2.0\PS2.AssemblyInfoInputs.cache
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\obj\Debug\netcoreapp2.0\PS2.AssemblyInfo.cs
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\obj\Debug\netcoreapp2.0\PS2.csproj.CopyComplete
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\obj\Debug\netcoreapp2.0\PS2.dll
+C:\Users\Delia\Source\Repos\Oruet\PS2\PS2\obj\Debug\netcoreapp2.0\PS2.pdb
