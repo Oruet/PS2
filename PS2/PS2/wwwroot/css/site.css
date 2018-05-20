@@ -33,3 +33,43 @@
         display: none;
     }
 }
+
+/***************************************/
+.buton-stare 
+{
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 30px;
+    display: inline-block;
+}
+
+.siloz 
+{
+    border: 1px solid black;
+    width: 200px;
+    height: 400px;
+    display: inline-block;
+    margin-left: 80px;
+}
+
+.umplere 
+{
+    background-color: #ff7070;
+}
+.container-stanga 
+{
+    float: left;
+}
+.container-dreapta {
+    float: left;
+    padding-left: 60px;
+}
+
+#buton-golire{
+    margin-top:20px;
+}
+
+.pornire{
+    background-color:lightgreen;
+}
