@@ -664,28 +664,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sebii\\.nuget\\packages\\": {},
+    "C:\\Users\\Delia\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sebii\\source\\repos\\PS2\\PS2\\TCPCommunication\\TCPCommunication.csproj",
+      "projectUniqueName": "C:\\Users\\Delia\\Source\\Repos\\Oruet\\PS2\\TCPCommunication\\TCPCommunication.csproj",
       "projectName": "TCPCommunication",
-      "projectPath": "C:\\Users\\Sebii\\source\\repos\\PS2\\PS2\\TCPCommunication\\TCPCommunication.csproj",
-      "packagesPath": "C:\\Users\\Sebii\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sebii\\source\\repos\\PS2\\PS2\\TCPCommunication\\obj\\",
+      "projectPath": "C:\\Users\\Delia\\Source\\Repos\\Oruet\\PS2\\TCPCommunication\\TCPCommunication.csproj",
+      "packagesPath": "C:\\Users\\Delia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Delia\\Source\\Repos\\Oruet\\PS2\\TCPCommunication\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Sebii\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Delia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
