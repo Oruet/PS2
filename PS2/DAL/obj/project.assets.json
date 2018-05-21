@@ -671,11 +671,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Florin\\Source\\Repos\\PS2\\PS2\\TCPCommunication\\TCPCommunication.csproj",
-      "projectName": "TCPCommunication",
-      "projectPath": "C:\\Users\\Florin\\Source\\Repos\\PS2\\PS2\\TCPCommunication\\TCPCommunication.csproj",
+      "projectUniqueName": "C:\\Users\\Florin\\source\\repos\\PS2\\PS2\\DAL\\DAL.csproj",
+      "projectName": "DAL",
+      "projectPath": "C:\\Users\\Florin\\source\\repos\\PS2\\PS2\\DAL\\DAL.csproj",
       "packagesPath": "C:\\Users\\Florin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Florin\\Source\\Repos\\PS2\\PS2\\TCPCommunication\\obj\\",
+      "outputPath": "C:\\Users\\Florin\\source\\repos\\PS2\\PS2\\DAL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
