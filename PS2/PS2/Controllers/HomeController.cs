@@ -5,11 +5,13 @@ namespace PS2.Controllers
     public class HomeController : Controller
     {
         public bool Umplut { get; set; }
+        public bool Pornit { get; set; }
 
         public IActionResult Index()
         {
            // Umplut = true;
             ViewData["Umplut"] = Umplut;
+            ViewData["Pornit"] = Pornit;
             return View();
         }
 
@@ -17,6 +19,8 @@ namespace PS2.Controllers
         {
             Umplut = true;
             ViewData["Umplut"] = Umplut;
+            Pornit = true;
+            ViewData["Pornit"] = Pornit;
             return View("Index");
         }
 
@@ -24,6 +28,9 @@ namespace PS2.Controllers
         {
             Umplut = false;
             ViewData["Umplut"] = Umplut;
+            Pornit = false;
+            ViewData["Pornit"] = Pornit;
+
             return View("Index");
         }
 
