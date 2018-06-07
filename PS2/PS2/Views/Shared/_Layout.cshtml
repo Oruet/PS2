@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - PS2</title>
@@ -15,9 +16,13 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+
+    
 </head>
-<body>
-   
+<body onload="adaugaClasa() ">
+
+    <h2 align="center">Controlul silozului</h2>
+
     <div class="container body-content">
         @RenderBody()
         <hr />

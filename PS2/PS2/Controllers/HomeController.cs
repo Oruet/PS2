@@ -1,35 +1,89 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PS2.Models;
 
 namespace PS2.Controllers
 {
     public class HomeController : Controller
     {
-        public bool Umplut { get; set; }
-        public bool Pornit { get; set; }
+        public static bool Umplut { get; set; }
+        public static bool Pornit { get; set; }
+        public static bool Deschis { get; set; }
+
+        public static bool Activat { get; set; }
+
+        [HttpPost]
+        public IActionResult Activare(ActivareViewModel model)
+        {
+            if (model.ButonActivare != null && model.ButonActivare.Equals("activat"))
+            {
+                Activat = true;
+            }
+            else
+            {
+                Activat = false;
+                Deschis = false;
+            }
+
+            ViewData["Umplut"] = Umplut;
+            ViewData["Pornit"] = Pornit;
+            ViewData["Deschis"] = Deschis;
+            ViewData["Activat"] = Activat;
+            return View("Index");
+        }
+
 
         public IActionResult Index()
         {
-           // Umplut = true;
+            // Umplut = true;
             ViewData["Umplut"] = Umplut;
             ViewData["Pornit"] = Pornit;
+            ViewData["Deschis"] = Deschis;
+            ViewData["Activat"] = Activat;
             return View();
         }
 
         public IActionResult Umplere()
         {
-            Umplut = true;
-            ViewData["Umplut"] = Umplut;
-            Pornit = true;
-            ViewData["Pornit"] = Pornit;
+            if (Activat == true)
+            {
+                if(Umplut == false)
+                {
+                    ViewData["FostGolit"] = true;
+                }
+                Umplut = true;
+               Pornit = true;
+                Deschis = false;
+            }
+            ViewData["Umplut"] = Umplut;          
+            ViewData["Pornit"] = Pornit;        
+            ViewData["Deschis"] = Deschis;
+            ViewData["Activat"] = Activat;
             return View("Index");
         }
 
         public IActionResult Golire()
         {
-            Umplut = false;
+            if (Activat == true)
+            {
+
+                if(Umplut == true)
+                {
+                    Deschis = true;
+                    ViewData["FostUmplut"] = true;
+                }
+                else
+                {
+                    Deschis = false;
+                }
+                Umplut = false;
+                Pornit = false;
+               
+            }
+
             ViewData["Umplut"] = Umplut;
-            Pornit = false;
             ViewData["Pornit"] = Pornit;
+            ViewData["Deschis"] = Deschis;
+            ViewData["Activat"] = Activat;
 
             return View("Index");
         }
