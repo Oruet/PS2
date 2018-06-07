@@ -1,0 +1,6 @@
+C:\Users\Florin\Source\Repos\PS2\PS2\DAL\bin\Debug\netcoreapp2.0\DAL.deps.json
+C:\Users\Florin\Source\Repos\PS2\PS2\DAL\bin\Debug\netcoreapp2.0\DAL.dll
+C:\Users\Florin\Source\Repos\PS2\PS2\DAL\obj\Debug\netcoreapp2.0\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Florin\Source\Repos\PS2\PS2\DAL\obj\Debug\netcoreapp2.0\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Florin\Source\Repos\PS2\PS2\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInfoInputs.cache
+C:\Users\Florin\Source\Repos\PS2\PS2\DAL\obj\Debug\netcoreapp2.0\DAL.AssemblyInfo.cs
