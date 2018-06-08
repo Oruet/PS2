@@ -3,18 +3,22 @@
 }
 
 <div class="container-stanga">
-    <div class="buton-stare @( ((bool) ViewData["Pornit"]) ? "pornire" : "" )">
+    <div class="buton-stare @( ((bool)ViewData["Pornit"]) ? "pornire" : "" )">
     </div>
 
-    <div class="siloz @( ((bool) ViewData["Umplut"]) ? "umplere" : "" )">
+    <div class="siloz @( (ViewData["FostUmplut"] != null && (bool)ViewData["FostUmplut"]) ? "umplere" : "" ) @( (((bool)ViewData["Umplut"]) == true && ViewData["FostGolit"] == null) ? "umplere" : "" )" id="siloz">
     </div>
 </div>
 
 <div class="container-dreapta">
-    <div class="switch">
-        <input type="checkbox">
-        <span class="slider"></span>
-    </div>
+    <form method="post" action="/home/activare" name="form">
+        <label class="switch">
+            <input type="checkbox" name="ButonActivare" value="activat" @( ((bool)ViewData["Activat"]) ? "checked" : "" ) onchange="this.form.submit()">
+            <span class="slider round"></span>
+            
+        </label>
+        <span class="text">Pornire/Oprire</span>
+    </form>
     <div>
         <button onclick="location.href='@( Url.Action("Umplere", "Home") )'">Umplere</button>
     </div>
@@ -22,8 +26,43 @@
         <button onclick="location.href='@( Url.Action("Golire", "Home") )'">Golire</button>
     </div>
 
+    <div class="valva @( ((bool)ViewData["Deschis"]) ? "deschidere" : "" )" align="center">
+Valva
+    </div>
+
 </div>
+
+<div class="linie1"></div>
+<div class="linie2"></div>
+<div class="linie3"></div>
+<div class="linie4"></div>
+<div class="linie5"></div>
+<div class="linie6"></div>
+<div class="linie7"></div>
 
 <div class="clearfix">
 
 </div>
+
+<script type="text/javascript">
+
+    function adaugaClasa() {
+        @if (((bool)ViewData["Umplut"]) == true && ViewData["FostGolit"] != null)
+        {
+      @:  setTimeout(function () {
+        @:    document.getElementById("siloz").className += "umplere";
+/**/
+            @: }, 1000);
+    }else if(((bool)ViewData["Umplut"]) == false)
+        {
+             @:  setTimeout(function () {
+        @:    document.getElementById("siloz").classList.remove("umplere");
+/**/
+            @: }, 1000);
+
+        }
+
+            }
+
+
+</script>
