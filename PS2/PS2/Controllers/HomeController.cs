@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DAL;
+using Microsoft.AspNetCore.Mvc;
 using PS2.Models;
+using System;
 
 namespace PS2.Controllers
 {
@@ -10,6 +12,7 @@ namespace PS2.Controllers
         public static bool Deschis { get; set; }
 
         public static bool Activat { get; set; }
+
 
         [HttpPost]
         public IActionResult Activare(ActivareViewModel model)
@@ -69,14 +72,16 @@ namespace PS2.Controllers
                 if(Umplut == true)
                 {
                     Deschis = true;
+                    Pornit = true;
                     ViewData["FostUmplut"] = true;
                 }
                 else
                 {
                     Deschis = false;
+                    Pornit = false;
                 }
                 Umplut = false;
-                Pornit = false;
+                
                
             }
 
@@ -86,6 +91,12 @@ namespace PS2.Controllers
             ViewData["Activat"] = Activat;
 
             return View("Index");
+        }
+
+        public IActionResult Istoric()
+        {
+         
+            return View();
         }
 
 

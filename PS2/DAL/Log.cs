@@ -4,13 +4,13 @@ using System.Text;
 
 namespace DAL
 {
-    class Log
+    public class Log
     {
         //private int id;
-        private string username;
-        private DateTime timestamp;
-        private string action;
-        private string state;
+        public string username { get; set; }
+        public DateTime timestamp { get; set; }
+        public string action { get; set; }
+        public string state { get; set; }
 
         public Log(string username, DateTime timestamp, string action, string state)
         {

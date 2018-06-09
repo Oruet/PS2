@@ -4,14 +4,14 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    class DBHelper
+    public class DBHelper
     {
-        static List<Log> logs = new List<Log>();
+        public static List<Log> logs = new List<Log>();
         static SqlConnection connDB;
 
         static DBHelper()
         {
-            connDB = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Florin\source\repos\PS2\PS2\DAL\Log.mdf;Integrated Security=True;Connect Timeout=30");
+            connDB = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Delia\source\repos\Oruet\PS2\DAL\Log.mdf;Integrated Security=True;Connect Timeout=30");
             connDB.Open();
             reloadData();
         }

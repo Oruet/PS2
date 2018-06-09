@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Istoric";
+}
+
+<h2>Istoric date</h2>
+
+<table border="1">
+    <tr>
+        <th width="150">Username</th>
+        <th width="150">Timestamp</th>
+        <th width="150">Action</th>
+        <th width="150">State</th>
+    </tr>
+    @foreach(var rand in DAL.DBHelper.logs )
+    {
+    <tr>
+        <td width="150">
+            @rand.username
+        </td>
+
+        <td width="150">
+            @rand.timestamp
+        </td>
+
+        <td width="150">
+            @rand.action
+        </td>
+
+        <td width="150">
+            @rand.state
+        </td>
+    </tr>
+
+    }
+
+</table>
+
+<div class="buton-back">
+    <button onclick="location.href='@( Url.Action("Index", "Home") )'">Back</button>
+</div>
+
