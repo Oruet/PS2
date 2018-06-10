@@ -7,15 +7,22 @@
     </div>
 
     <div class="siloz " id="siloz">
+        <div class="nivel-6"></div>
+
+        <div class="nivel-5"></div>
+        <div class="nivel-4"></div>
+        <div class="nivel-3"></div>
+        <div class="nivel-2"></div>
+        <div class="nivel-1"></div>
     </div>
 </div>
 
 <div class="container-dreapta">
     <form method="post" action="/home/activare" name="form">
         <label class="switch">
-            <input type="checkbox" name="ButonActivare" value="activat" id="buton-activare" >
+            <input type="checkbox" name="ButonActivare" value="activat" id="buton-activare">
             <span class="slider round"></span>
-            
+
         </label>
         <span class="text">Pornire/Oprire</span>
     </form>
@@ -27,13 +34,13 @@
     </div>
 
     <div class="valva" align="center">
-Valva
+        Valva
     </div>
 
 </div>
 
 <div class="buton-istoric">
-    <button onclick="location.href='@( Url.Action("Istoric", "Home") )'">Vizualizare istoric</button>
+    <button onclick="location.href='@( Url.Action("Istoric", "Home" ) )'">Vizualizare istoric</button>
 </div>
 
 <div class="linie1"></div>
@@ -74,15 +81,51 @@ Valva
                 success: function (response) {
                     //    debugger;
                     if (umplut == false && response.umplut == true) {
-                      //  debugger;
-                        $(".siloz").addClass("umplere");
+                        //  debugger;
+                        $(".siloz .nivel-1").addClass("umplere");
+                        setTimeout(function () {
+                            if (umplut == true) {
+                                $(".siloz .nivel-2").addClass("umplere");
+                                setTimeout(function () {
+                                    if (umplut == true) {
+                                    $(".siloz .nivel-3").addClass("umplere");
+                                        setTimeout(function () {
+                                            if (umplut == true) {
+                                            $(".siloz .nivel-4").addClass("umplere");
+                                                setTimeout(function () {
+                                                    if (umplut == true) {
+                                                    $(".siloz .nivel-5").addClass("umplere");
+                                                        setTimeout(function () {
+                                                            $(".buton-stare").removeClass("pornire");
+                                                        }, 1000);
+                                                    }
+                                                }, 1000);
+                                            }
+                                        }, 1000);
+                                    }
+                                }, 1000);
+                            }
+                        }, 1000);
                         $(".buton-stare").addClass("pornire");
                         $(".valva").removeClass("deschidere");
                     }
 
                     if (umplut == true && response.umplut == false) {
                         //  debugger;
-                        $(".siloz").removeClass("umplere");
+                        $(".siloz .nivel-5").removeClass("umplere");
+                        setTimeout(function () {
+                            $(".siloz .nivel-4").removeClass("umplere");
+                            setTimeout(function () {
+                                $(".siloz .nivel-3").removeClass("umplere");
+                                setTimeout(function () {
+                                    $(".siloz .nivel-2").removeClass("umplere");
+                                    setTimeout(function () {
+                                        $(".valva").removeClass("deschidere");
+                                        $(".buton-stare").removeClass("pornire");
+                                    }, 1000);
+                                }, 1000);
+                            }, 1000);
+                        }, 1000);
                         $(".buton-stare").addClass("pornire");
                         $(".valva").addClass("deschidere");
                     }
@@ -116,8 +159,8 @@ Valva
                 dataType: 'json',
                 data: JSON.stringify(stare),
                 success: function (response) {
-                          //    debugger;
-                
+                    //    debugger;
+
                 },
                 failure: function (response) {
                     debugger;
@@ -136,8 +179,8 @@ Valva
                 });
 
             }
-           
-         });
+
+        });
 
         $("#golire").click(function () {
             if (activat == true) {
@@ -149,7 +192,7 @@ Valva
                 });
 
             }
-            
+
         });
 
         $('#buton-activare').change(function () {
@@ -177,4 +220,4 @@ Valva
     });
 
 </script>
-    }
+}

@@ -51,23 +51,23 @@
     height: 400px;
     display: inline-block;
     margin-left: 80px;
-    background-size: 200% 200%;
+    /*background-size: 200% 200%;
     background-image: linear-gradient(to top, #ff7070 50%, transparent 50%);
-    -webkit-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
-    -moz-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
-    -ms-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
-    -o-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
-    transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -webkit-transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
+    -moz-transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
+    -ms-transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
+    -o-transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
+    transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;*/
 }
 
 .umplere {
     background-image: linear-gradient(to top, #ff7070 51%, transparent 50%);
     background-position: 0 100%;
-    -webkit-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
-    -moz-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
-    -ms-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
-    -o-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
-    transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -webkit-transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
+    -moz-transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
+    -ms-transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
+    -o-transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
+    transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
 }
 
 .container-stanga {
@@ -275,4 +275,50 @@ table th {
     position: absolute;
     top: 42px;
     left: 377px
+}
+
+.nivel-1 {
+    width: 100%;
+    border: 1px solid red;
+    height: 33px;
+}
+
+.nivel-2 {
+    width: 100%;
+    border: 1px solid red;
+    height: 84px;
+}
+
+.nivel-3 {
+    width: 100%;
+    border: 1px solid red;
+    height: 90px;
+}
+
+.nivel-4 {
+    width: 100%;
+    border: 1px solid red;
+    height: 84px;
+}
+
+.nivel-5 {
+    width: 100%;
+    border: 1px solid red;
+    height: 57px;
+}
+
+.nivel-6 {
+    width: 100%;
+    border: 1px solid red;
+    height: 50px;
+}
+
+.nivel-1, .nivel-2, .nivel-3, .nivel-4, .nivel-5 {
+    background-size: 200% 200%;
+    background-image: linear-gradient(to top, #ff7070 50%, transparent 50%);
+    -webkit-transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
+    -moz-transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
+    -ms-transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
+    -o-transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
+    transition: background-position 1000ms, color 1000ms ease, border-color 1000ms ease;
 }
