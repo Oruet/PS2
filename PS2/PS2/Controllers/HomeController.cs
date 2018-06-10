@@ -1,93 +1,93 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using DAL;
+using Microsoft.AspNetCore.Hosting.Internal;
+using Microsoft.AspNetCore.Mvc;
 using PS2.Models;
+using Shared;
+using System;
+using System.Threading.Tasks;
 
 namespace PS2.Controllers
 {
     public class HomeController : Controller
     {
-        public static bool Umplut { get; set; }
-        public static bool Pornit { get; set; }
-        public static bool Deschis { get; set; }
+        private static bool tcpInitialized = false;
+        private static TcpCommunication tcpCommunication;
 
-        public static bool Activat { get; set; }
-
-        [HttpPost]
-        public IActionResult Activare(ActivareViewModel model)
+        public HomeController()
         {
-            if (model.ButonActivare != null && model.ButonActivare.Equals("activat"))
+            if (!tcpInitialized)
             {
-                Activat = true;
+                tcpCommunication = new TcpCommunication();
+                tcpCommunication.StateChanged += StareHandler.Tcp_StateChanged;
+                tcpCommunication.StartTcp();
+                tcpInitialized = true;
             }
-            else
-            {
-                Activat = false;
-                Deschis = false;
-            }
-
-            ViewData["Umplut"] = Umplut;
-            ViewData["Pornit"] = Pornit;
-            ViewData["Deschis"] = Deschis;
-            ViewData["Activat"] = Activat;
-            return View("Index");
         }
-
 
         public IActionResult Index()
         {
-            // Umplut = true;
-            ViewData["Umplut"] = Umplut;
-            ViewData["Pornit"] = Pornit;
-            ViewData["Deschis"] = Deschis;
-            ViewData["Activat"] = Activat;
             return View();
         }
 
-        public IActionResult Umplere()
+
+        public IActionResult Istoric()
         {
-            if (Activat == true)
-            {
-                if(Umplut == false)
-                {
-                    ViewData["FostGolit"] = true;
-                }
-                Umplut = true;
-               Pornit = true;
-                Deschis = false;
-            }
-            ViewData["Umplut"] = Umplut;          
-            ViewData["Pornit"] = Pornit;        
-            ViewData["Deschis"] = Deschis;
-            ViewData["Activat"] = Activat;
-            return View("Index");
+            DBHelper.reloadData();
+            return View();
+        }
+        [HttpGet]
+        public JsonResult Stare()
+        {
+            Stare stare = new Stare { Umplut =SharedVariables.Umplut, Activat = SharedVariables.Activat, Pornit = SharedVariables.Pornit, Deschis = SharedVariables.Deschis };
+
+            return Json(stare);
         }
 
-        public IActionResult Golire()
+        [HttpPost]
+        public IActionResult UpdateStare([FromBody]Stare model)
         {
-            if (Activat == true)
+            try
             {
+                if (SharedVariables.Activat == false && model.Activat == true)
+                {
+                    tcpCommunication.On();
+                }
 
-                if(Umplut == true)
+                if (SharedVariables.Activat == true && model.Activat == false)
                 {
-                    Deschis = true;
-                    ViewData["FostUmplut"] = true;
+                    tcpCommunication.Off();
                 }
-                else
+
+                if (SharedVariables.Umplut == true && model.Umplut == false)
                 {
-                    Deschis = false;
+                    Task.Run(() =>
+                    {
+                        DBHelper.addUser("User1", DateTime.Now, "Golire", "Nivel 5");
+                        tcpCommunication.Golire();
+                    });
+
+                   
                 }
-                Umplut = false;
-                Pornit = false;
-               
+
+                if (SharedVariables.Umplut == false && model.Umplut == true)
+                {
+                    Task.Run(() =>
+                    {
+                        DBHelper.addUser("User1", DateTime.Now, "Umplere", "Nivel 1");
+                        tcpCommunication.Umplere();
+                    });
+                   
+                }
             }
+            catch (Exception ex) { }
 
-            ViewData["Umplut"] = Umplut;
-            ViewData["Pornit"] = Pornit;
-            ViewData["Deschis"] = Deschis;
-            ViewData["Activat"] = Activat;
+            SharedVariables.Umplut = model.Umplut;
+            SharedVariables.Activat = model.Activat;
+            SharedVariables.Pornit = model.Pornit;
+            SharedVariables.Deschis = model.Deschis;
 
-            return View("Index");
+            return Json(new{ });
         }
-
 
     }
 }

@@ -3,33 +3,44 @@
 }
 
 <div class="container-stanga">
-    <div class="buton-stare @( ((bool)ViewData["Pornit"]) ? "pornire" : "" )">
+    <div class="buton-stare">
     </div>
 
-    <div class="siloz @( (ViewData["FostUmplut"] != null && (bool)ViewData["FostUmplut"]) ? "umplere" : "" ) @( (((bool)ViewData["Umplut"]) == true && ViewData["FostGolit"] == null) ? "umplere" : "" )" id="siloz">
+    <div class="siloz " id="siloz">
+        <div class="nivel-6"></div>
+
+        <div class="nivel-5"></div>
+        <div class="nivel-4"></div>
+        <div class="nivel-3"></div>
+        <div class="nivel-2"></div>
+        <div class="nivel-1"></div>
     </div>
 </div>
 
 <div class="container-dreapta">
     <form method="post" action="/home/activare" name="form">
         <label class="switch">
-            <input type="checkbox" name="ButonActivare" value="activat" @( ((bool)ViewData["Activat"]) ? "checked" : "" ) onchange="this.form.submit()">
+            <input type="checkbox" name="ButonActivare" value="activat" id="buton-activare">
             <span class="slider round"></span>
-            
+
         </label>
         <span class="text">Pornire/Oprire</span>
     </form>
     <div>
-        <button onclick="location.href='@( Url.Action("Umplere", "Home") )'">Umplere</button>
+        <button id="umplere">Umplere</button>
     </div>
     <div id="buton-golire">
-        <button onclick="location.href='@( Url.Action("Golire", "Home") )'">Golire</button>
+        <button id="golire">Golire</button>
     </div>
 
-    <div class="valva @( ((bool)ViewData["Deschis"]) ? "deschidere" : "" )" align="center">
-Valva
+    <div class="valva" align="center">
+        Valva
     </div>
 
+</div>
+
+<div class="buton-istoric">
+    <button onclick="location.href='@( Url.Action("Istoric", "Home" ) )'">Vizualizare istoric</button>
 </div>
 
 <div class="linie1"></div>
@@ -40,29 +51,173 @@ Valva
 <div class="linie6"></div>
 <div class="linie7"></div>
 
+
+<span class="nivel1">Nivel 1</span>
+<span class="nivel2">Nivel 2</span>
+<span class="nivel3">Nivel 3</span>
+<span class="nivel4">Nivel 4</span>
+<span class="nivel5">Nivel 5</span>
+
 <div class="clearfix">
 
 </div>
 
+@section scripts {
 <script type="text/javascript">
 
-    function adaugaClasa() {
-        @if (((bool)ViewData["Umplut"]) == true && ViewData["FostGolit"] != null)
-        {
-      @:  setTimeout(function () {
-        @:    document.getElementById("siloz").className += "umplere";
-/**/
-            @: }, 1000);
-    }else if(((bool)ViewData["Umplut"]) == false)
-        {
-             @:  setTimeout(function () {
-        @:    document.getElementById("siloz").classList.remove("umplere");
-/**/
-            @: }, 1000);
+    var umplut = false;
+    var activat = false;
+    var deschis = false;
+    var pornit = false;
+
+    $(document).ready(function () {
+        getStare();
+        function getStare() {
+            $.ajax({                           // face apel de la client(browser) la server de tipul get
+                type: 'GET',
+                url: '/Home/Stare',
+                contentType: 'aplication/json; charset=utf-8',
+                dataType: 'json',
+                success: function (response) {
+                    //    debugger;
+                    if (umplut == false && response.umplut == true) {
+                        //  debugger;
+                        $(".siloz .nivel-1").addClass("umplere");
+                        setTimeout(function () {
+                            if (umplut == true) {
+                                $(".siloz .nivel-2").addClass("umplere");
+                                setTimeout(function () {
+                                    if (umplut == true) {
+                                    $(".siloz .nivel-3").addClass("umplere");
+                                        setTimeout(function () {
+                                            if (umplut == true) {
+                                            $(".siloz .nivel-4").addClass("umplere");
+                                                setTimeout(function () {
+                                                    if (umplut == true) {
+                                                    $(".siloz .nivel-5").addClass("umplere");
+                                                        setTimeout(function () {
+                                                            $(".buton-stare").removeClass("pornire");
+                                                        }, 1000);
+                                                    }
+                                                }, 1000);
+                                            }
+                                        }, 1000);
+                                    }
+                                }, 1000);
+                            }
+                        }, 1000);
+                        $(".buton-stare").addClass("pornire");
+                        $(".valva").removeClass("deschidere");
+                    }
+
+                    if (umplut == true && response.umplut == false) {
+                        //  debugger;
+                        $(".siloz .nivel-5").removeClass("umplere");
+                        setTimeout(function () {
+                            $(".siloz .nivel-4").removeClass("umplere");
+                            setTimeout(function () {
+                                $(".siloz .nivel-3").removeClass("umplere");
+                                setTimeout(function () {
+                                    $(".siloz .nivel-2").removeClass("umplere");
+                                    setTimeout(function () {
+                                        $(".valva").removeClass("deschidere");
+                                        $(".buton-stare").removeClass("pornire");
+                                    }, 1000);
+                                }, 1000);
+                            }, 1000);
+                        }, 1000);
+                        $(".buton-stare").addClass("pornire");
+                        $(".valva").addClass("deschidere");
+                    }
+
+                    if (response.activat == true) {
+
+                        $('#buton-activare').prop("checked", true);
+
+                    }
+                    setTimeout(function () {
+                        getStare();
+                    }, 1000);
+
+                    umplut = response.umplut;
+                    activat = response.activat;
+                    deschis = response.deschis;
+                    pornit = response.pornit;
+                },
+                failure: function (response) {
+                    debugger;
+                }
+            });
 
         }
 
+        function postStare(stare) {
+            $.ajax({
+                type: 'POST',
+                url: '/Home/UpdateStare',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                data: JSON.stringify(stare),
+                success: function (response) {
+                    //    debugger;
+
+                },
+                failure: function (response) {
+                    debugger;
+                }
+            });
+
+        }
+
+        $("#umplere").click(function () {
+            if (activat == true) {
+                postStare({
+                    umplut: true,
+                    Deschis: false,
+                    Activat: true,
+                    Pornit: true
+                });
+
             }
 
+        });
+
+        $("#golire").click(function () {
+            if (activat == true) {
+                postStare({
+                    umplut: false,
+                    Deschis: true,
+                    Activat: true,
+                    Pornit: true
+                });
+
+            }
+
+        });
+
+        $('#buton-activare').change(function () {
+            if ($(this).is(":checked")) {
+                postStare({
+                    umplut: umplut,
+                    Deschis: deschis,
+                    Activat: true,
+                    Pornit: pornit
+                });
+
+            }
+            else
+                postStare({
+                    umplut: umplut,
+                    Deschis: deschis,
+                    Activat: false,
+                    Pornit: pornit
+                });
+        });
+
+
+
+
+    });
 
 </script>
+}
