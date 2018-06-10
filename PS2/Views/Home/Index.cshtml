@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-stanga">
+    <div class="buton-stare @( ((bool) ViewData["Pornit"]) ? "pornire" : "" )">
+    </div>
+
+    <div class="siloz @( ((bool) ViewData["Umplut"]) ? "umplere" : "" )">
+    </div>
+</div>
+
+<div class="container-dreapta">
+    <div class="switch">
+        <input type="checkbox">
+        <span class="slider"></span>
+    </div>
+    <div>
+        <button onclick="location.href='@( Url.Action("Umplere", "Home") )'">Umplere</button>
+    </div>
+    <div id="buton-golire">
+        <button onclick="location.href='@( Url.Action("Golire", "Home") )'">Golire</button>
+    </div>
+
+</div>
+
+<div class="clearfix">
+
+</div>

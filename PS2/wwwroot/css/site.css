@@ -1,0 +1,89 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+/***************************************/
+.buton-stare {
+    width: 60px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 30px;
+    display: inline-block;
+}
+
+.siloz {
+    border: 1px solid black;
+    width: 200px;
+    height: 400px;
+    display: inline-block;
+    margin-left: 80px;
+    background-size: 200% 200%;
+    background-image: linear-gradient(to top, #ff7070 50%, transparent 50%);
+    -webkit-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -moz-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -ms-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -o-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+}
+
+.umplere {
+    background-image: linear-gradient(to top, #ff7070 51%, transparent 50%);
+    background-position: 0 100%;
+    -webkit-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -moz-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -ms-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    -o-transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+    transition: background-position 2000ms, color 2000ms ease, border-color 2000ms ease;
+}
+
+.container-stanga {
+    float: left;
+}
+
+.container-dreapta {
+    float: left;
+    padding-left: 60px;
+}
+
+#buton-golire {
+    margin-top: 20px;
+}
+
+.pornire {
+    background-color: lightgreen;
+}
+
+
+

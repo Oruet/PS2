@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/PS2/v15/Server/sqlite3
+/PS2/bin/Debug/netcoreapp2.0
+/PS2/obj
+/TCPCommunication/bin/Debug/netcoreapp2.0
+/TCPCommunication/obj
+/.vs
