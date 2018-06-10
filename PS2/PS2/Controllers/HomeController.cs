@@ -1,104 +1,43 @@
 ﻿using DAL;
 using Microsoft.AspNetCore.Mvc;
 using PS2.Models;
+using Shared;
 using System;
 
 namespace PS2.Controllers
 {
     public class HomeController : Controller
     {
-        public static bool Umplut { get; set; }
-        public static bool Pornit { get; set; }
-        public static bool Deschis { get; set; }
-
-        public static bool Activat { get; set; }
-
-
-        [HttpPost]
-        public IActionResult Activare(ActivareViewModel model)
-        {
-            if (model.ButonActivare != null && model.ButonActivare.Equals("activat"))
-            {
-                Activat = true;
-            }
-            else
-            {
-                Activat = false;
-                Deschis = false;
-            }
-
-            ViewData["Umplut"] = Umplut;
-            ViewData["Pornit"] = Pornit;
-            ViewData["Deschis"] = Deschis;
-            ViewData["Activat"] = Activat;
-            return View("Index");
-        }
-
 
         public IActionResult Index()
         {
-            // Umplut = true;
-            ViewData["Umplut"] = Umplut;
-            ViewData["Pornit"] = Pornit;
-            ViewData["Deschis"] = Deschis;
-            ViewData["Activat"] = Activat;
             return View();
         }
 
-        public IActionResult Umplere()
-        {
-            if (Activat == true)
-            {
-                if(Umplut == false)
-                {
-                    ViewData["FostGolit"] = true;
-                }
-                Umplut = true;
-               Pornit = true;
-                Deschis = false;
-            }
-            ViewData["Umplut"] = Umplut;          
-            ViewData["Pornit"] = Pornit;        
-            ViewData["Deschis"] = Deschis;
-            ViewData["Activat"] = Activat;
-            return View("Index");
-        }
-
-        public IActionResult Golire()
-        {
-            if (Activat == true)
-            {
-
-                if(Umplut == true)
-                {
-                    Deschis = true;
-                    Pornit = true;
-                    ViewData["FostUmplut"] = true;
-                }
-                else
-                {
-                    Deschis = false;
-                    Pornit = false;
-                }
-                Umplut = false;
-                
-               
-            }
-
-            ViewData["Umplut"] = Umplut;
-            ViewData["Pornit"] = Pornit;
-            ViewData["Deschis"] = Deschis;
-            ViewData["Activat"] = Activat;
-
-            return View("Index");
-        }
 
         public IActionResult Istoric()
         {
          
             return View();
         }
+        [HttpGet]
+        public JsonResult Stare()
+        {
+            Stare stare = new Stare { Umplut =SharedVariables.Umplut, Activat = SharedVariables.Activat, Pornit = SharedVariables.Pornit, Deschis = SharedVariables.Deschis };
 
+            return Json(stare);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateStare([FromBody]Stare model)
+        {
+            SharedVariables.Umplut = model.Umplut;
+            SharedVariables.Activat = model.Activat;
+            SharedVariables.Pornit = model.Pornit;
+            SharedVariables.Deschis = model.Deschis;
+
+            return Json(new{ });
+        }
 
     }
 }
