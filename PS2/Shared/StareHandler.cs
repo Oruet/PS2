@@ -8,7 +8,18 @@ namespace Shared
     {
         public static void Tcp_StateChanged(object sender, CustomEventArgs e)
         {
-            if(SharedVariables.Senzori[1] == true && e.AutomationState.b2 == false) {
+            if(e.AutomationState.s5)
+            {
+                SharedVariables.Umplut = true;
+            }
+
+            if (e.AutomationState.s0)
+            {
+                SharedVariables.Umplut = false;
+            }
+
+
+            if (SharedVariables.Senzori[1] == true && e.AutomationState.b2 == false) {
                 DBHelper.addUser("User1", DateTime.Now, "Golire", "Nivel 1");
             }
 
@@ -17,7 +28,7 @@ namespace Shared
                 DBHelper.addUser("User1", DateTime.Now, "Umplere", "Nivel 5");
             }
 
-            SharedVariables.Umplut = e.AutomationState.s5;
+            //SharedVariables.Umplut = e.AutomationState.s5;
             SharedVariables.Pornit = e.AutomationState.g1;
             SharedVariables.Deschis = e.AutomationState.k1;
             SharedVariables.Senzori[0] = e.AutomationState.b1;

@@ -4,6 +4,7 @@ using System.Net;
 using System.Threading;
 using System.Collections;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting.Server;
 
 namespace PS2
 {
@@ -14,20 +15,21 @@ namespace PS2
         static string error;
         static NetworkStream ns;
         static TcpClient client;
-        static byte[] buffers;
+        static byte[] buffers = new byte[16];
         public event EventHandler<CustomEventArgs> StateChanged;
         public StareAutomat st;
 
-        public void StartTcp()
+        public async Task StartTcp()
         {
             try
             {
-                Int32 port = 2000;
-                IPAddress localIP = IPAddress.Parse("192.168.0.190");
+                Int32 port = 102;
+                IPAddress localIP = IPAddress.Parse("192.168.0.100");
                 client = new TcpClient(localIP.ToString(), port);
                 ns = client.GetStream();
-                Thread t = new Thread(Read);
-                t.Start();
+                //Thread t = new Thread(Read);
+                //t.Start();
+                await Read();
 
             }
             catch (Exception e)
@@ -36,7 +38,7 @@ namespace PS2
             }
 
         }
-        public async void Read()
+        public async Task Read()
         {
             int count;
             while (client.Client.Connected)
@@ -62,7 +64,7 @@ namespace PS2
             if (ns.CanWrite)
             {
 
-                //ns.Write(command, 0, command.Length);
+               // ns.Write(command, 0, command.Length);
                 ns.WriteAsync(command, 0, command.Length).Wait();
             }
         }

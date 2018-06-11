@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using PS2.Models;
 using Shared;
 using System;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace PS2.Controllers
@@ -17,10 +19,10 @@ namespace PS2.Controllers
         {
             if (!tcpInitialized)
             {
+                tcpInitialized = true;
                 tcpCommunication = new TcpCommunication();
                 tcpCommunication.StateChanged += StareHandler.Tcp_StateChanged;
-                tcpCommunication.StartTcp();
-                tcpInitialized = true;
+
             }
         }
 
@@ -29,6 +31,15 @@ namespace PS2.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Comunicare()
+        {
+            if (tcpInitialized)
+            {
+                await tcpCommunication.StartTcp();
+            }
+
+            return null;
+        }
 
         public IActionResult Istoric()
         {
@@ -88,6 +99,5 @@ namespace PS2.Controllers
 
             return Json(new{ });
         }
-
     }
 }
